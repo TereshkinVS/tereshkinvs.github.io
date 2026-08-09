@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Вячеслав Терёшкин — сетевой инженер / специалист ИБ</title>
+<meta name="description" content="Портфолио сетевого инженера и специалиста по информационной безопасности Вячеслава Терёшкина. 14+ лет опыта в связи, ВОЛС, 802.1X, ИБ и КИИ.">
+<meta property="og:title" content="Вячеслав Терёшкин — сетевой инженер / специалист ИБ">
+<meta property="og:description" content="14+ лет в связи и сетевой инфраструктуре: ВОЛС, ЦОД, 802.1X, RADIUS/TACACS+, защита КИИ.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tereshkinvs.ru/">
+<meta property="og:image" content="https://tereshkinvs.ru/assets/img/portrait-suit.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#about">К содержанию</a>
+<div class="scroll-progress"></div>
+
+<header class="site">
+  <div class="wrap bar">
+    <div class="brand"><span class="dot"></span>VS<span class="dim">/tereshkin</span></div>
+    <nav class="links">
+      <a href="#about">about</a>
+      <a href="#experience">experience</a>
+      <a href="#education">education</a>
+      <a href="#skills">skills</a>
+      <a href="#legal">legal</a>
+      <a href="#projects">projects</a>
+      <a href="#contact">contact</a>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn-text" href="https://barnaul.hh.ru/resume/d044b285ff0f369fa10039ed1f754d32427461?hhtmFrom=my_resumes" target="_blank" rel="noopener">Резюме →</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Меню">☰</button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">about</a>
+    <a href="#experience">experience</a>
+    <a href="#education">education</a>
+    <a href="#skills">skills</a>
+    <a href="#legal">legal</a>
+      <a href="#projects">projects</a>
+    <a href="#contact">contact</a>
+  </div>
+</header>
+
+<!-- ================= HERO / TERMINAL ================= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow"><span class="idx">whoami</span></div>
+      <h1>Вячеслав Терёшкин<span class="line2">сетевой инженер / ИБ</span></h1>
+      <p class="role">Связь и сетевая инфраструктура на промышленных объектах — от оптики и ЦОД до 802.1X, RADIUS/TACACS+ и защиты КИИ. 14+ лет в поле и за консолью.</p>
+
+      <div class="stats">
+        <div class="stat"><b data-count="14" data-suffix="+">0</b><span>лет в связи</span></div>
+        <div class="stat"><b data-count="7" data-suffix="+">0</b><span>лет ведущим / старшим специалистом</span></div>
+        <div class="stat"><b>187-ФЗ</b><span>КИИ, ФСТЭК 235/239</span></div>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn primary" href="#projects">Проекты
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn" href="#contact">Связаться</a>
+      </div>
+    </div>
+
+    <div class="terminal reveal">
+      <div class="term-titlebar">
+        <div class="dots"><span></span><span></span><span></span></div>
+        <div class="path">ssh vs-engineer@tereshkinvs.ru</div>
+      </div>
+      <div class="term-body" id="termBody"></div>
+      <div class="term-inputrow">
+        <span class="term-prompt">vs@engineer:~$</span>
+        <input class="term-input" id="termInput" type="text" autocomplete="off" spellcheck="false" aria-label="Терминал: введите команду">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap about-grid reveal">
+    <div class="about-photo">
+      <img src="assets/img/portrait-suit.jpg" alt="Вячеслав Терёшкин">
+      <span class="tag">вахта · удалённо</span>
+    </div>
+    <div>
+      <div class="eyebrow"><span class="idx">01</span>Обо мне</div>
+      <div class="about-text">
+        <p><strong>14+ лет</strong> в связи и сетевой инфраструктуре, из них более 7 лет — на позициях старшего и ведущего специалиста связи в промышленной группе компаний. Начинал с физического уровня — <span class="term" tabindex="0">ВОЛС<span class="term-card"><b>ВОЛС</b><span>Волоконно-оптические линии связи. Сварка волокна, измерения, прокладка трасс — то, по чему потом ходит весь сетевой трафик предприятия.</span></span></span>, СКС, АТС, СКУД, — прошёл через обслуживание ЦОД и сетевого оборудования и пришёл к проектированию контроля доступа и сегментации сети на уровне корпоративных стандартов.</p>
+        <p>Совмещаю практический опыт эксплуатации сетей с системным подходом к документированию, автоматизации и защите информации: внедрял <span class="term" tabindex="0">AAA-политики<span class="term-card"><b>AAA</b><span>Authentication, Authorization, Accounting. Кто зашёл, что ему разрешено, что он сделал. Основа контролируемого доступа к сетевому оборудованию.</span></span></span> (RADIUS, TACACS+, <span class="term" tabindex="0">802.1X<span class="term-card"><b>802.1X</b><span>Стандарт аутентификации на уровне порта. Устройство не получает доступ в сеть, пока не подтвердит легитимность — розетка в переговорке перестаёт быть дырой в периметре.</span></span></span>), проектировал VLAN/STP-сегментацию, готовил материалы по требованиям <span class="term" tabindex="0">187-ФЗ<span class="term-card"><b>187-ФЗ</b><span>Закон о безопасности критической информационной инфраструктуры. Обязывает промышленные предприятия категорировать значимые объекты и защищать их по требованиям регулятора.</span></span></span> и приказов ФСТЭК №235/239 в рамках защиты <span class="term" tabindex="0">КИИ<span class="term-card"><b>КИИ</b><span>Критическая информационная инфраструктура — системы, отказ которых бьёт по экономике, безопасности или здоровью людей. Горнодобывающее производство попадает под это определение.</span></span></span>.</p>
+        <p>Сейчас — заочная магистратура в НИУ ВШЭ по направлению «Кибербезопасность», параллельно с вахтовой работой в группе компаний «Полюс».</p>
+      </div>
+      <div class="about-facts">
+        <div class="fact"><div class="k">Формат работы</div><div class="v">Вахта · удалённо · гибрид</div></div>
+        <div class="fact"><div class="k">Специализация</div><div class="v">Сети + ИБ</div></div>
+        <div class="fact"><div class="k">Оборудование</div><div class="v">Huawei / Cisco / HP / Ruckus</div></div>
+        <div class="fact"><div class="k">Командировки</div><div class="v">Готов</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="idx">02</span>Опыт</div>
+      <h2>От геологоразведки до защиты КИИ</h2>
+      <p class="lede">Путь через физический уровень связи к сетевой безопасности промышленных объектов.</p>
+    </div>
+
+    <div class="timeline reveal">
+
+      <div class="tl-item current" data-era="network">
+        <div class="tl-date">Ноя 2025 —<br>наст. время<span class="tl-era">Сети · ИБ</span></div>
+        <div class="tl-dot"></div>
+        <div>
+          <div class="tl-role">Ведущий специалист связи</div>
+          <div class="tl-org">МФЦ Полюс, Группа компаний «Полюс» · вахта</div>
+          <div class="tl-desc">
+            <ul>
+              <li>Отказоустойчивость и защищённость сервисов связи на производственных площадках</li>
+              <li>Контроль доступа к сетевому оборудованию: RADIUS, TACACS+, 802.1X, AAA-политики, ACL, ограничение VTY/SSH/HTTP</li>
+              <li>Проектирование сетевой сегментации (VLAN, STP, маршрутизация) по корпоративным стандартам безопасности</li>
+              <li>Регламенты эксплуатации с учётом ISO 27001 и PDCA; материалы по защите КИИ (187-ФЗ, приказы ФСТЭК №235/239)</li>
+              <li>Документирование инфраструктуры и картирование объектов</li>
+              <li>Автоматизация генерации конфигураций (Flask, генератор L3 для Huawei S5731)</li>
+            </ul>
+          </div>
+          <div class="tl-media">
+            <figure class="shot">
+              <img src="assets/img/award-ceremony-2026.jpg" alt="Вручение благодарности, АО «Полюс Магадан», июль 2026" data-lightbox="assets/img/award-ceremony-2026.jpg" loading="lazy">
+              <figcaption>Вручение · июль 2026</figcaption>
+            </figure>
+            <figure class="doc">
+              <img src="assets/img/cert-thanks-metallurg-2026.jpg" alt="Благодарность за добросовестный труд, День металлурга 2026" data-lightbox="assets/img/cert-thanks-metallurg-2026.jpg" loading="lazy">
+              <figcaption>Благодарность · День металлурга, 2026</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-era="network">
+        <div class="tl-date">Март 2022 —<br>Окт 2025<span class="tl-era">Сети · ЦОД</span></div>
+        <div class="tl-dot"></div>
+        <div>
+          <div class="tl-role">Старший специалист связи</div>
+          <div class="tl-org">МФЦ Полюс, Группа компаний «Полюс» · вахта</div>
+          <div class="tl-desc">
+            <ul>
+              <li>Обслуживание сетевой инфраструктуры: коммутаторы и маршрутизаторы HP, Cisco, Huawei, Wi-Fi-контроллеры Cisco/Ruckus</li>
+              <li>Система визуализации и мониторинга логов на базе Grafana и TheDude — раннее выявление аномалий</li>
+              <li>Обслуживание ЦОД, серверной инфраструктуры, систем бесперебойного питания</li>
+              <li>Учётные системы оборудования, планирование закупок</li>
+              <li>Защищённая радиосвязь TETRA (Motorola, Hytera) и спутниковая связь Iridium</li>
+            </ul>
+          </div>
+          <div class="tl-media">
+            <figure class="shot">
+              <img src="assets/img/quarry-fullbody-2019.jpg" alt="На карьере, объект группы компаний «Полюс»" data-lightbox="assets/img/quarry-fullbody-2019.jpg" loading="lazy">
+              <figcaption>На объекте · карьер</figcaption>
+            </figure>
+            <figure class="doc">
+              <img src="assets/img/cert-thanks-video-2022.jpg" alt="Благодарность за проект промышленного видеонаблюдения в карьере НГОКа" data-lightbox="assets/img/cert-thanks-video-2022.jpg" loading="lazy">
+              <figcaption>Благодарность · видеонаблюдение НГОКа, 2022</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-era="network">
+        <div class="tl-date">2019 —<br>Март 2022<span class="tl-era">Сети · радиоканалы</span></div>
+        <div class="tl-dot"></div>
+        <div>
+          <div class="tl-role">Специалист связи</div>
+          <div class="tl-org">МФЦ Полюс, Группа компаний «Полюс» · вахта</div>
+          <div class="tl-desc">
+            <ul>
+              <li>Эксплуатация сетевой и телекоммуникационной инфраструктуры производственных площадок</li>
+              <li>Участие в построении сети связи для карьерной техники на базе Infinet — радиоканалы для подвижных объектов (карьер Еруда)</li>
+              <li>Взаимодействие с подрядными организациями при строительстве и модернизации инфраструктуры связи</li>
+            </ul>
+          </div>
+          <div class="tl-media">
+            <figure class="wide">
+              <img src="assets/img/quarry-selfie-2019.jpg" alt="Вячеслав Терёшкин на карьере, 2019" data-lightbox="assets/img/quarry-selfie-2019.jpg" loading="lazy">
+              <figcaption>На карьере · 2019</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-era="comms">
+        <div class="tl-date">Окт 2012 —<br>Окт 2017<span class="tl-era">Связь</span></div>
+        <div class="tl-dot"></div>
+        <div>
+          <div class="tl-role">Электромеханик связи</div>
+          <div class="tl-org">Региональный центр связи · Амурская область</div>
+          <div class="tl-desc">
+            5 лет на физическом уровне связи — там, где сеть начинается с кабеля и кросса.
+            <ul>
+              <li>Обслуживание систем ОПС, СКУД, СКС, ВОЛС, АТС, СМК — физический уровень защиты объектов связи</li>
+              <li>Оперативная документация, акты проверок, работа комиссий и служебные расследования по объектам связи</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-era="mining">
+        <div class="tl-date">Март 2011 —<br>Май 2012<span class="tl-era">Горное дело</span></div>
+        <div class="tl-dot"></div>
+        <div>
+          <div class="tl-role">Электрослесарь дежурный, 4 разряд</div>
+          <div class="tl-org">ООО «Покровский рудник» · Амурская область</div>
+          <div class="tl-desc">Обслуживание электрооборудования производственного цикла добывающего предприятия, включая критически важные для непрерывности производства системы.</div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-era="mining">
+        <div class="tl-date">Май 2008 —<br>Ноя 2008<span class="tl-era">Горное дело</span></div>
+        <div class="tl-dot"></div>
+        <div>
+          <div class="tl-role">Горнорабочий, 2 разряд</div>
+          <div class="tl-org">ЗДП «Тукурингра» · Амурская область</div>
+          <div class="tl-desc">Оператор гидромонитора на россыпном месторождении золота. Производственная практика.</div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-era="mining">
+        <div class="tl-date">Июнь 2006 —<br>Сен 2006<span class="tl-era">Геологоразведка</span></div>
+        <div class="tl-dot"></div>
+        <div>
+          <div class="tl-role">Рабочий на геологоразведочных работах</div>
+          <div class="tl-org">«Амургеология» · Амурская область</div>
+          <div class="tl-desc">Разнорабочий в геологоразведочной партии. Производственная практика — первая работа в отрасли.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= EDUCATION ================= -->
+<section id="education">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="idx">03</span>Образование</div>
+      <h2>Инженерное + защита информации</h2>
+      <p class="lede">От техника-электромеханика до магистратуры по кибербезопасности в НИУ ВШЭ.</p>
+    </div>
+
+    <div class="edu-grid reveal stagger">
+      <div class="edu-card">
+        <div class="thumb"><img src="assets/img/diploma-bachelor.jpg" alt="Диплом бакалавра СибГУТИ" loading="lazy" data-lightbox="assets/img/diploma-bachelor.jpg"></div>
+        <div class="body">
+          <div class="status">Завершено · 2025</div>
+          <h4>Инфокоммуникационные технологии и системы связи</h4>
+          <div class="org">Сибирский государственный университет телекоммуникаций и информатики, Новосибирск</div>
+          <div class="meta">Квалификация: бакалавр · защищённые системы связи</div>
+        </div>
+      </div>
+
+      <div class="edu-card">
+        <div class="thumb"><img src="assets/img/cert-protei-lte.jpg" alt="Сертификат PROTEI EPC Private LTE" loading="lazy" data-lightbox="assets/img/cert-protei-lte.jpg"></div>
+        <div class="body">
+          <div class="status">Сертификат · февраль 2026</div>
+          <h4>PROTEI EPC Private LTE, уровень BASIC</h4>
+          <div class="org">НТЦ ПРОТЕЙ, Санкт-Петербург</div>
+          <div class="meta">№ 126-3166</div>
+        </div>
+      </div>
+
+      <div class="edu-card">
+        <div class="thumb edu-logo">
+          <img src="assets/img/hse-logo.webp" alt="Логотип НИУ ВШЭ" loading="lazy">
+          <span class="in-progress">обучение идёт</span>
+        </div>
+        <div class="body">
+          <div class="status">Начало — сентябрь 2026 · заочно</div>
+          <h4>Магистратура «Кибербезопасность»</h4>
+          <div class="org">НИУ ВШЭ, Москва</div>
+          <div class="meta">Остался 1 год обучения</div>
+        </div>
+      </div>
+
+      <div class="edu-card">
+        <div class="thumb edu-emblem">
+          <img src="assets/img/mining-emblem.svg" alt="Эмблема горного отделения" loading="lazy">
+        </div>
+        <div class="body">
+          <div class="status">Завершено · 2009</div>
+          <h4>Техник-электромеханик в горной промышленности</h4>
+          <div class="org">Благовещенский политехнический колледж, горное отделение</div>
+          <div class="meta">Среднее специальное</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:48px;">
+      <div class="eyebrow" style="margin-bottom:6px;"><span class="idx">↳</span>Оценка работы</div>
+      <p class="rail-hint">Официальные благодарности руководства · прокрутите вбок →</p>
+      <div class="rec-rail">
+
+        <div class="rec-card">
+          <p class="quote">За добросовестный труд, высокий уровень профессионализма, активное участие в развитии компании и в честь профессионального праздника — Дня металлурга</p>
+          <div class="rec-meta">
+            <img src="assets/img/cert-thanks-metallurg-2026.jpg" alt="Благодарность ко Дню металлурга, 2026" data-lightbox="assets/img/cert-thanks-metallurg-2026.jpg" loading="lazy">
+            <div class="who">
+              <div class="n">Огнев А. Н.</div>
+              <div class="t">Управляющий директор<br>АО «Полюс Магадан» · июль 2026</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rec-card">
+          <p class="quote">За успешно реализованный проект по промышленному видеонаблюдению в карьере НГОКа</p>
+          <div class="rec-meta">
+            <img src="assets/img/cert-thanks-video-2022.jpg" alt="Благодарность за проект видеонаблюдения, 2022" data-lightbox="assets/img/cert-thanks-video-2022.jpg" loading="lazy">
+            <div class="who">
+              <div class="n">Огнев А. Н.</div>
+              <div class="t">Управляющий директор<br>АО «Полюс Магадан» · июль 2022</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rec-card">
+          <p class="quote">Прослушал курс «PROTEI EPC Private LTE, уровень BASIC» — сертификат № 126-3166</p>
+          <div class="rec-meta">
+            <img src="assets/img/cert-protei-lte.jpg" alt="Сертификат PROTEI EPC Private LTE" data-lightbox="assets/img/cert-protei-lte.jpg" loading="lazy">
+            <div class="who">
+              <div class="n">Апостолова Н. А.</div>
+              <div class="t">Генеральный директор<br>ООО «НТЦ ПРОТЕЙ» · февраль 2026</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rec-card">
+          <p class="quote">Вручение благодарности на торжественном мероприятии в честь Дня металлурга</p>
+          <div class="rec-meta">
+            <img src="assets/img/award-ceremony-2026.jpg" alt="Вручение благодарности, июль 2026" data-lightbox="assets/img/award-ceremony-2026.jpg" loading="lazy">
+            <div class="who">
+              <div class="n">АО «Полюс Магадан»</div>
+              <div class="t">Церемония награждения<br>июль 2026</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="achievement-band reveal" style="margin-top:40px;">
+      <div class="logo">
+        <img src="assets/img/hse-logo.webp" alt="Логотип НИУ ВШЭ" loading="lazy">
+      </div>
+      <div class="content">
+        <h4>НИУ ВШЭ в рейтингах</h4>
+        <p>Магистратура по кибербезопасности входит в состав одного из <strong>ведущих вузов России</strong> по подготовке специалистов ИБ. Вот почему выбор ВШЭ — это инвестиция в признанное образование:</p>
+        <div class="ratings">
+          <div class="rating-item"><span class="rank">2-е</span> место в общем зачёте вузов России по версии Forbes</div>
+          <div class="rating-item"><span class="rank">1-е</span> место по репутации среди работодателей (выпускники ВШЭ — одни из самых востребованных)</div>
+          <div class="rating-item"><span class="rank">Топ-4</span> в национальных рейтингах агентства RAEX</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="idx">04</span>Навыки</div>
+      <h2>Стек: от медных пар до КИИ</h2>
+    </div>
+
+    <div class="skills-grid reveal stagger">
+      <div class="skill-card" data-domain="net">
+        <div class="num">01 · Сети</div>
+        <h4>Networking</h4>
+        <div class="skill-list">
+          <div class="skill-row"><span class="sk-name">802.1X</span><span class="sk-level">Внедрял в проде</span>
+            <span class="sk-note">Аутентификация портов на площадках, MAC-bypass, guest-VLAN при отказе сервера</span>
+            <span class="sk-meter"><i style="--lvl:92%"></i></span></div>
+          <div class="skill-row"><span class="sk-name">Huawei VRP</span><span class="sk-level">Основной вендор</span>
+            <span class="sk-note">S5731, L3-сегментация, собственный генератор конфигураций</span>
+            <span class="sk-meter"><i style="--lvl:90%"></i></span></div>
+          <div class="skill-row"><span class="sk-name">VLAN / STP</span><span class="sk-level">Проектирую</span>
+            <span class="sk-note">Сегментация по корпоративным стандартам, защита от петель, storm-control</span>
+            <span class="sk-meter"><i style="--lvl:88%"></i></span></div>
+          <div class="skill-row"><span class="sk-name">Cisco / HP</span><span class="sk-level">Уверенно</span>
+            <span class="sk-note">Коммутаторы и маршрутизаторы, эксплуатация и модернизация</span>
+            <span class="sk-meter"><i style="--lvl:78%"></i></span></div>
+          <div class="skill-row"><span class="sk-name">Wi-Fi: Cisco / Ruckus</span><span class="sk-level">Эксплуатация</span>
+            <span class="sk-note">Контроллеры, покрытие производственных площадок</span>
+            <span class="sk-meter"><i style="--lvl:70%"></i></span></div>
+          <div class="skill-row"><span class="sk-name">Infinet Wireless</span><span class="sk-level">Крупный проект</span>
+            <span class="sk-note">Радиоканалы для подвижной карьерной техники, карьер Еруда</span>
+            <span class="sk-meter"><i style="--lvl:80%"></i></span></div>
+        </div>
+      </div>
+
+      <div class="skill-card" data-domain="sec">
+        <div class="num">02 · ИБ</div>
+        <h4>Безопасность и соответствие</h4>
+        <div class="skill-list">
+          <div class="skill-row"><span class="sk-name">RADIUS / TACACS+</span><span class="sk-level">Внедрял</span>
+            <span class="sk-note">AAA-схемы, шаблоны серверов, аккаунтинг, резервирование по весам</span>
+            <span class="sk-meter"><i style="--lvl:90%"></i></span></div>
+          <div class="skill-row"><span class="sk-name">187-ФЗ · КИИ</span><span class="sk-level">Практика + теория</span>
+            <span class="sk-note">Категорирование объектов, обязанности субъекта КИИ, ГосСОПКА</span>
+            <span class="sk-meter"><i style="--lvl:82%"></i></span></div>
+          <div class="skill-row"><span class="sk-name">ФСТЭК №235 / №239</span><span class="sk-level">Готовлю материалы</span>
+            <span class="sk-note">Требования к системам безопасности и мерам защиты значимых объектов</span>
+            <span class="sk-meter"><i style="--lvl:80%"></i></span></div>
+          <div class="skill-row"><span class="sk-name">ACL, ограничение доступа</span><span class="sk-level">Ежедневно</span>
+            <span class="sk-note">VTY/SSH/HTTP, подсети управления, отключение telnet и http-сервера</span>
+            <span class="sk-meter"><i style="--lvl:88%"></i></span></div>
+          <div class="skill-row"><span class="sk-name">ISO 27001 · PDCA</span><span class="sk-level">Регламенты</span>
+            <span class="sk-note">Локальные регламенты эксплуатации и модернизации системы связи</span>
+            <span class="sk-meter"><i style="--lvl:68%"></i></span></div>
+          <div class="skill-row"><span class="sk-name">152-ФЗ · 98-ФЗ</span><span class="sk-level">Знаю базу</span>
+            <span class="sk-note">Персональные данные, коммерческая тайна — в объёме смежных задач</span>
+            <span class="sk-meter"><i style="--lvl:62%"></i></span></div>
+        </div>
+      </div>
+
+      <div class="skill-card" data-domain="infra">
+        <div class="num">03 · Инфраструктура</div>
+        <h4>Физический уровень и ЦОД</h4>
+        <div class="skill-list">
+          <div class="skill-row"><span class="sk-name">ВОЛС</span><span class="sk-level">С монтажа до эксплуатации</span>
+            <span class="sk-note">Сварка и измерения, трассы на промышленных объектах</span>
+            <span class="sk-meter"><i style="--lvl:88%"></i></span></div>
+          <div class="skill-row"><span class="sk-name">ЦОД и серверные</span><span class="sk-level">Обслуживал</span>
+            <span class="sk-note">Стойки, ИБП в том числе модульные, климат, учёт оборудования</span>
+            <span class="sk-meter"><i style="--lvl:80%"></i></span></div>
+          <div class="skill-row"><span class="sk-name">TETRA</span><span class="sk-level">Эксплуатация</span>
+            <span class="sk-note">Motorola, Hytera — защищённая технологическая радиосвязь</span>
+            <span class="sk-meter"><i style="--lvl:76%"></i></span></div>
+          <div class="skill-row"><span class="sk-name">Private LTE</span><span class="sk-level">Обучен, внедряю</span>
+            <span class="sk-note">Ядро PROTEI EPC, связь для горнодобывающей техники</span>
+            <span class="sk-meter"><i style="--lvl:64%"></i></span></div>
+          <div class="skill-row"><span class="sk-name">Iridium</span><span class="sk-level">Резервный канал</span>
+            <span class="sk-note">Спутниковая связь на удалённых объектах</span>
+            <span class="sk-meter"><i style="--lvl:58%"></i></span></div>
+          <div class="skill-row"><span class="sk-name">СКС · ОПС · СКУД · АТС</span><span class="sk-level">5 лет в поле</span>
+            <span class="sk-note">Физический уровень защиты объектов связи, оперативная документация</span>
+            <span class="sk-meter"><i style="--lvl:84%"></i></span></div>
+        </div>
+      </div>
+
+      <div class="skill-card" data-domain="auto">
+        <div class="num">04 · Автоматизация</div>
+        <h4>Инструменты и код</h4>
+        <div class="skill-list">
+          <div class="skill-row"><span class="sk-name">Python / Flask</span><span class="sk-level">Пишу рабочие тулзы</span>
+            <span class="sk-note">Генератор L3-конфигураций — снижает риск ошибки при массовой настройке</span>
+            <span class="sk-meter"><i style="--lvl:74%"></i></span></div>
+          <div class="skill-row"><span class="sk-name">Grafana · TheDude</span><span class="sk-level">Строил с нуля</span>
+            <span class="sk-note">Визуализация и мониторинг логов, раннее выявление аномалий</span>
+            <span class="sk-meter"><i style="--lvl:78%"></i></span></div>
+          <div class="skill-row"><span class="sk-name">Linux CLI</span><span class="sk-level">Уверенно</span>
+            <span class="sk-note">Администрирование серверов, скрипты, диагностика</span>
+            <span class="sk-meter"><i style="--lvl:72%"></i></span></div>
+          <div class="skill-row"><span class="sk-name">Proxmox · Docker</span><span class="sk-level">Домашняя лаба</span>
+            <span class="sk-note">Виртуализация, контейнеры, сетевые бриджи — свой полигон</span>
+            <span class="sk-meter"><i style="--lvl:66%"></i></span></div>
+          <div class="skill-row"><span class="sk-name">WireGuard</span><span class="sk-level">Настраиваю</span>
+            <span class="sk-note">Защищённый удалённый доступ</span>
+            <span class="sk-meter"><i style="--lvl:64%"></i></span></div>
+          <div class="skill-row"><span class="sk-name">Документирование сети</span><span class="sk-level">Системно</span>
+            <span class="sk-note">Картирование объектов, схемы, внутренние регламенты</span>
+            <span class="sk-meter"><i style="--lvl:86%"></i></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= НОРМАТИВНАЯ БАЗА ================= -->
+<section id="legal">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="idx">05</span>Нормативная база</div>
+      <h2>Чем регулируется защита промышленной сети</h2>
+      <p class="lede">Рабочий справочник по законам и приказам, с которыми имею дело. Раскройте пункт — что он требует на практике.</p>
+    </div>
+
+    <div class="law-list reveal">
+      <details class="law-item">
+        <summary>
+          <span class="law-code">187-ФЗ</span>
+          <span class="law-title">О безопасности критической информационной инфраструктуры РФ</span>
+          <span class="law-plus">+</span>
+        </summary>
+        <div class="law-body">Определяет, что считается объектом КИИ и кто является субъектом. Обязывает провести категорирование объектов, уведомить ФСТЭК о результатах и обеспечить взаимодействие с ГосСОПКА. Для горнодобывающего предприятия это означает: технологические сети, диспетчеризация и системы безопасности попадают под регулирование, а их защита перестаёт быть внутренним делом ИТ-службы.</div>
+      </details>
+
+      <details class="law-item">
+        <summary>
+          <span class="law-code">ФСТЭК №235</span>
+          <span class="law-title">Требования к созданию систем безопасности значимых объектов КИИ</span>
+          <span class="law-plus">+</span>
+        </summary>
+        <div class="law-body">Организационная сторона: какие подразделения и специалисты отвечают за безопасность значимых объектов, как распределяются полномочия, какие документы должны существовать. Задаёт рамку, внутри которой пишутся локальные регламенты эксплуатации.</div>
+      </details>
+
+      <details class="law-item">
+        <summary>
+          <span class="law-code">ФСТЭК №239</span>
+          <span class="law-title">Требования по обеспечению безопасности значимых объектов КИИ</span>
+          <span class="law-plus">+</span>
+        </summary>
+        <div class="law-body">Техническая сторона: конкретные меры защиты по категориям значимости — управление доступом, сегментация, регистрация событий, антивирусная защита, контроль целостности. Именно отсюда растут требования к 802.1X, ACL, централизованному логированию и разграничению прав на сетевом оборудовании.</div>
+      </details>
+
+      <details class="law-item">
+        <summary>
+          <span class="law-code">149-ФЗ</span>
+          <span class="law-title">Об информации, информационных технологиях и о защите информации</span>
+          <span class="law-plus">+</span>
+        </summary>
+        <div class="law-body">Базовый закон отрасли: вводит понятия информации, информационных систем и обладателя информации, определяет права и обязанности операторов. Фундамент, на который опираются остальные нормативные акты.</div>
+      </details>
+
+      <details class="law-item">
+        <summary>
+          <span class="law-code">152-ФЗ</span>
+          <span class="law-title">О персональных данных</span>
+          <span class="law-plus">+</span>
+        </summary>
+        <div class="law-body">Требования к обработке и защите персональных данных. В сетевом контексте всплывает там, где системы идентификации, СКУД и видеонаблюдение собирают данные о сотрудниках — то есть практически на каждом промышленном объекте.</div>
+      </details>
+
+      <details class="law-item">
+        <summary>
+          <span class="law-code">98-ФЗ</span>
+          <span class="law-title">О коммерческой тайне</span>
+          <span class="law-plus">+</span>
+        </summary>
+        <div class="law-body">Режим защиты конфиденциальной коммерческой информации: что можно отнести к тайне, как вводится режим, какие меры обязательны. Связывает техническую защиту с юридической возможностью привлечь за утечку.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="idx">06</span>Проекты</div>
+      <h2>Инструменты и реализованные задачи</h2>
+      <p class="lede">Каждый проект открывается отдельно — подробное описание, стек и результат.</p>
+    </div>
+
+    <div class="projects-grid reveal stagger">
+
+      <a class="project-card" href="projects/configurator.html" target="_blank" rel="noopener">
+        <div class="status-row">
+          <span class="status live">Работает · демо</span>
+          <span class="arrow">↗</span>
+        </div>
+        <h4>Генератор L3-конфигураций</h4>
+        <p>Flask-приложение для автоматической сборки конфигураций Huawei S5731: парсинг существующих L3-секций, определение VLAN, генерация готового конфига с RADIUS/TACACS+ и 802.1X.</p>
+        <div class="tags">
+          <span class="tag">Python / Flask</span><span class="tag">Huawei VRP</span><span class="tag">802.1X</span>
+        </div>
+      </a>
+
+      <a class="project-card" href="projects/video-surveillance.html" target="_blank" rel="noopener">
+        <div class="status-row">
+          <span class="status mining">Полюс · 2022</span>
+          <span class="arrow">↗</span>
+        </div>
+        <h4>Промышленное видеонаблюдение</h4>
+        <p>Проект видеонаблюдения в карьере НГОКа: сетевая часть системы, отказоустойчивость каналов, интеграция с диспетчерской. Отмечен благодарностью управляющего директора.</p>
+        <div class="tags">
+          <span class="tag">Видеонаблюдение</span><span class="tag">Сетевая инфраструктура</span>
+        </div>
+      </a>
+
+      <a class="project-card" href="projects/l3-8021x.html" target="_blank" rel="noopener">
+        <div class="status-row">
+          <span class="status internal">Полюс · текущее</span>
+          <span class="arrow">↗</span>
+        </div>
+        <h4>Переход на L3 + 802.1X</h4>
+        <p>Проектирование сегментации сети (VLAN, STP, L3) и внедрение контроля доступа по стандарту 802.1X с AAA-политиками на производственных площадках.</p>
+        <div class="tags">
+          <span class="tag">L3</span><span class="tag">802.1X</span><span class="tag">RADIUS/TACACS+</span>
+        </div>
+      </a>
+
+      <a class="project-card" href="projects/infinet-wenco.html" target="_blank" rel="noopener">
+        <div class="status-row">
+          <span class="status mining">Полюс Золото · карьер Еруда</span>
+          <span class="arrow">↗</span>
+        </div>
+        <h4>Сеть Infinet для карьерной техники + диспетчеризация Wenco</h4>
+        <p>Радиосеть для подвижной горной техники — крупнейшее внедрение Infinet на подвижных объектах. Стала транспортом для автоматической диспетчеризации Wenco: телеметрия и задания в реальном времени.</p>
+        <div class="tags">
+          <span class="tag">Infinet Wireless</span><span class="tag">Wenco FMS</span><span class="tag">Радиосвязь</span>
+        </div>
+      </a>
+
+      <a class="project-card" href="projects/private-lte.html" target="_blank" rel="noopener">
+        <div class="status-row">
+          <span class="status internal">Полюс · технологическая связь</span>
+          <span class="arrow">↗</span>
+        </div>
+        <h4>Private LTE для карьерной техники</h4>
+        <p>Технологическая радиосвязь LTE на горнодобывающих объектах: устойчивое покрытие движущейся техники в чаше карьера для телеметрии и диспетчеризации. Ядро PROTEI EPC.</p>
+        <div class="tags">
+          <span class="tag">Private LTE</span><span class="tag">PROTEI EPC</span><span class="tag">TETRA / Iridium</span>
+        </div>
+      </a>
+
+      <a class="project-card" href="projects/kii-lab.html" target="_blank" rel="noopener">
+        <div class="status-row">
+          <span class="status study">ВШЭ · лабораторные</span>
+          <span class="arrow">↗</span>
+        </div>
+        <h4>КИИ: теория и лабораторные работы</h4>
+        <p>Теоретические материалы и лабораторные работы по защите критической информационной инфраструктуры в рамках требований 187-ФЗ и приказов ФСТЭК.</p>
+        <div class="tags">
+          <span class="tag">187-ФЗ</span><span class="tag">ФСТЭК 235/239</span><span class="tag">КИИ</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOME LAB TEASER ================= -->
+<section id="homelab">
+  <div class="wrap reveal">
+    <div class="lab-teaser">
+      <div>
+        <div class="eyebrow"><span class="idx">07</span>Домашняя лаборатория</div>
+        <h2 style="font-size:28px;">Отдельный дашборд — в разработке</h2>
+        <p style="color:var(--text-dim);margin-top:14px;max-width:52ch;">Proxmox, Docker, xpenology, Home Assistant и pi-hole — управляемая панель, а не просто витрина статусов. Будет жить отдельно от портфолио.</p>
+        <div class="stack">
+          <span class="tag">Proxmox</span><span class="tag">Docker</span><span class="tag">xpenology</span><span class="tag">Home Assistant</span><span class="tag">pi-hole</span>
+        </div>
+      </div>
+      <div class="lab-visual">
+proxmox&nbsp;&nbsp;<span class="dim">[node: online]</span><br>
+docker&nbsp;&nbsp;&nbsp;&nbsp;<span class="dim">[compose: active]</span><br>
+xpenology&nbsp;<span class="dim">[3TB pool]</span><br>
+pi-hole&nbsp;&nbsp;&nbsp;<span class="dim">[dns: filtering]</span><br>
+home-asst&nbsp;<span class="dim">[automations: idle]</span><br>
+<br>
+<span class="dim">→ dashboard.tereshkinvs.ru — soon</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="contact-band">
+  <div class="wrap contact-inner reveal">
+    <h2>Открыт к новым задачам в связи и ИБ.</h2>
+    <div class="contact-links">
+      <a href="mailto:tereshkinvs88@mail.ru"><span class="k">email</span> tereshkinvs88@mail.ru</a>
+      <a href="https://t.me/TereshkinVS" target="_blank" rel="noopener"><span class="k">telegram</span> @TereshkinVS</a>
+      <a href="https://github.com/TereshkinVS" target="_blank" rel="noopener"><span class="k">github</span> TereshkinVS</a>
+      <a href="https://barnaul.hh.ru/resume/d044b285ff0f369fa10039ed1f754d32427461?hhtmFrom=my_resumes" target="_blank" rel="noopener"><span class="k">hh.ru</span> резюме</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap footer-row">
+    <span>© 2026 Вячеслав Терёшкин</span>
+    <span>built by hand, not a template</span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Генератор L3-конфигураций Huawei — Вячеслав Терёшкин</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230c1210'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%235fd3ab'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/tool.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="../index.html"><span class="dot"></span>VS<span class="dim">/tereshkin</span></a>
+    <nav class="links">
+      <a href="../index.html#projects">все проекты</a>
+      <a href="../index.html#contact">контакты</a>
+    </nav>
+  </div>
+</header>
+
+<section class="pd-hero">
+  <div class="wrap">
+    <a class="back-link" href="../index.html#projects">← ко всем проектам</a>
+    <div class="status-row">
+      <span class="status live">Работает · демо в браузере</span>
+    </div>
+    <h1>Генератор L3-конфигураций для Huawei S5731</h1>
+    <p class="sub">Тот же движок, что используется в работе на объектах «Полюса»: разбирает «сырой» L3-файл генератора топологии, чинит секции и подставляет переменные (VLAN, RADIUS/TACACS+, AAA, SNMP, NTP) в проверенный шаблон 802.1X-профиля. Всё считается локально в браузере — ничего не уходит на сервер.</p>
+
+    <div class="pd-meta">
+      <div class="m"><div class="k">Стек</div><div class="v">Python / Flask, JS-движок для демо</div></div>
+      <div class="m"><div class="k">Оборудование</div><div class="v">Huawei VRP · S5731-S24P4X</div></div>
+      <div class="m"><div class="k">Задача</div><div class="v">Снизить риск ошибки при массовой настройке</div></div>
+    </div>
+
+    <div class="tool-panel">
+      <div class="tool-tabs">
+        <div class="tool-tab active">Huawei VRP · S5731-S24P4X</div>
+        <div class="tool-tab" style="opacity:.5;">Cisco IOS (скоро)</div>
+        <div class="tool-tab" style="opacity:.5;">Eltex (скоро)</div>
+      </div>
+
+      <div class="wizard-steps">
+        <div class="wizard-step active" data-step="1"><span class="dot">1</span> L3-файл</div>
+        <div class="wizard-sep"></div>
+        <div class="wizard-step" data-step="2"><span class="dot">2</span> Переменные</div>
+        <div class="wizard-sep"></div>
+        <div class="wizard-step" data-step="3"><span class="dot">3</span> Конфиг</div>
+      </div>
+
+      <div class="tool-body">
+        <div class="tool-form" id="stepPane1">
+          <div class="field">
+            <label>Файл топологии (.txt) от генератора L3</label>
+            <div class="dropzone" id="dropzone">
+              Перетащите файл сюда или нажмите, чтобы выбрать
+              <div class="dropzone-filename" id="dropzoneFilename"></div>
+            </div>
+            <input type="file" id="fileInput" accept=".txt" style="display:none;">
+          </div>
+          <div class="field">
+            <label for="l3Text">…или вставьте текст L3-секций вручную</label>
+            <textarea id="l3Text" placeholder="#### VLAN section
+vlan 2100
+ name Data
+...&#10;#### Interface section
+interface XGigabitEthernet0/0/1
+..."></textarea>
+            <div class="field-hint">Формат: секции отделены маркерами «#### Название section».</div>
+          </div>
+          <div class="wizard-actions">
+            <button class="btn primary" id="toStep2Btn" style="justify-content:center; flex:1;">Разобрать файл →</button>
+          </div>
+        </div>
+
+        <div class="tool-form" id="stepPane2" style="display:none;"></div>
+
+        <div class="tool-output" id="stepPane3Output" style="display:none;">
+          <div class="tool-output-actions">
+            <button class="copy-btn" id="copyBtn">Копировать</button>
+            <button class="dl-btn" id="dlBtn">Скачать .txt</button>
+          </div>
+          <pre id="configOut"></pre>
+          <ul class="warn-list" id="warnList"></ul>
+        </div>
+        <div class="tool-output" id="stepPane3Placeholder">
+          <div class="output-placeholder">Загрузите L3-файл слева, чтобы движок разобрал секции,<br>определил VLAN и собрал готовый конфиг коммутатора.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pd-body">
+      <h3>Зачем это нужно</h3>
+      <p>Массовая настройка коммутаторов на распределённых промышленных площадках — источник человеческих ошибок: пропущенный VLAN, неверный uplink-порт, забытый ACL. Генератор берёт уже размеченный L3-файл (результат работы отдельного скрипта проектирования топологии), автоматически находит VLAN по именам, подставляет их в роли (Data/Voice/Printers/AP_Mgmt) и собирает итоговый конфиг по единому проверенному шаблону с 802.1X, RADIUS/TACACS+ и SNMP.</p>
+      <h3>Как это устроено</h3>
+      <ul>
+        <li>Парсер вычищает служебный мусор из «сырого» файла и группирует секции по маркерам</li>
+        <li>VLAN определяются по имени и автоматически связываются с нужными переменными шаблона</li>
+        <li>Мастер из 3 шагов: загрузка файла → проверка/правка переменных → готовый конфиг с предупреждениями</li>
+        <li>Проверки перед выдачей: не пропущена ли команда <code>save</code>, не остались ли незаполненные плейсхолдеры</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap footer-row">
+    <span>© 2026 Вячеслав Терёшкин</span>
+    <a href="../index.html#projects">← все проекты</a>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+<script src="configurator-engine.js"></script>
+</body>
+</html>
