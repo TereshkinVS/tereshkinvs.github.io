@@ -1,102 +1,84 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Эмблема горного дела">
   <defs>
-    <style>
-      .ink   { fill: var(--copper, #c9924f); }
-      .paper { fill: none; stroke: var(--copper, #c9924f); stroke-width: 2.2; }
-      .hair  { fill: none; stroke: var(--copper, #c9924f); stroke-width: 1.1; }
-    </style>
+    
   </defs>
 
-  <!-- Зубчатое колесо: внешний контур -->
+  
   <g class="ink">
-    <path d="M100 6
-      L112 12 L124 10 L133 19 L145 21 L150 33 L161 40 L161 53 L169 63 L165 75 L169 87
-      L161 97 L161 110 L150 117 L145 129 L133 131 L124 140 L112 138 L100 144
-      L88 138 L76 140 L67 131 L55 129 L50 117 L39 110 L39 97 L31 87 L35 75 L31 63
-      L39 53 L39 40 L50 33 L55 21 L67 19 L76 10 L88 12 Z"
-      opacity="0.16"/>
+    <path d="M100 6&#xA;      L112 12 L124 10 L133 19 L145 21 L150 33 L161 40 L161 53 L169 63 L165 75 L169 87&#xA;      L161 97 L161 110 L150 117 L145 129 L133 131 L124 140 L112 138 L100 144&#xA;      L88 138 L76 140 L67 131 L55 129 L50 117 L39 110 L39 97 L31 87 L35 75 L31 63&#xA;      L39 53 L39 40 L50 33 L55 21 L67 19 L76 10 L88 12 Z" opacity="0.16"></path>
   </g>
-  <path class="paper" d="M100 12
-    L110 17 L121 15 L129 23 L140 25 L145 36 L154 42 L154 54 L161 63 L157 75 L161 87
-    L154 96 L154 108 L145 114 L140 125 L129 127 L121 135 L110 133 L100 138
-    L90 133 L79 135 L71 127 L60 125 L55 114 L46 108 L46 96 L39 87 L43 75 L39 63
-    L46 54 L46 42 L55 36 L60 25 L71 23 L79 15 L90 17 Z"/>
+  <path class="paper" d="M100 12&#xA;    L110 17 L121 15 L129 23 L140 25 L145 36 L154 42 L154 54 L161 63 L157 75 L161 87&#xA;    L154 96 L154 108 L145 114 L140 125 L129 127 L121 135 L110 133 L100 138&#xA;    L90 133 L79 135 L71 127 L60 125 L55 114 L46 108 L46 96 L39 87 L43 75 L39 63&#xA;    L46 54 L46 42 L55 36 L60 25 L71 23 L79 15 L90 17 Z"></path>
 
-  <!-- Внутреннее кольцо с насечкой (как шкала прибора) -->
-  <circle class="paper" cx="100" cy="75" r="46"/>
-  <circle class="hair" cx="100" cy="75" r="41"/>
+  
+  <circle class="paper" cx="100" cy="75" r="46"></circle>
+  <circle class="hair" cx="100" cy="75" r="41"></circle>
   <g class="ink">
-    <!-- насечки по кольцу -->
+    
     <g id="ticks">
-      <rect x="99" y="30" width="2" height="6" rx="1"/>
+      <rect x="99" y="30" width="2" height="6" rx="1"></rect>
     </g>
-    <use href="#ticks" transform="rotate(15 100 75)"/>
-    <use href="#ticks" transform="rotate(30 100 75)"/>
-    <use href="#ticks" transform="rotate(45 100 75)"/>
-    <use href="#ticks" transform="rotate(60 100 75)"/>
-    <use href="#ticks" transform="rotate(75 100 75)"/>
-    <use href="#ticks" transform="rotate(90 100 75)"/>
-    <use href="#ticks" transform="rotate(105 100 75)"/>
-    <use href="#ticks" transform="rotate(120 100 75)"/>
-    <use href="#ticks" transform="rotate(135 100 75)"/>
-    <use href="#ticks" transform="rotate(150 100 75)"/>
-    <use href="#ticks" transform="rotate(165 100 75)"/>
-    <use href="#ticks" transform="rotate(180 100 75)"/>
-    <use href="#ticks" transform="rotate(195 100 75)"/>
-    <use href="#ticks" transform="rotate(210 100 75)"/>
-    <use href="#ticks" transform="rotate(225 100 75)"/>
-    <use href="#ticks" transform="rotate(240 100 75)"/>
-    <use href="#ticks" transform="rotate(255 100 75)"/>
-    <use href="#ticks" transform="rotate(270 100 75)"/>
-    <use href="#ticks" transform="rotate(285 100 75)"/>
-    <use href="#ticks" transform="rotate(300 100 75)"/>
-    <use href="#ticks" transform="rotate(315 100 75)"/>
-    <use href="#ticks" transform="rotate(330 100 75)"/>
-    <use href="#ticks" transform="rotate(345 100 75)"/>
+    <use href="#ticks" transform="rotate(15 100 75)"></use>
+    <use href="#ticks" transform="rotate(30 100 75)"></use>
+    <use href="#ticks" transform="rotate(45 100 75)"></use>
+    <use href="#ticks" transform="rotate(60 100 75)"></use>
+    <use href="#ticks" transform="rotate(75 100 75)"></use>
+    <use href="#ticks" transform="rotate(90 100 75)"></use>
+    <use href="#ticks" transform="rotate(105 100 75)"></use>
+    <use href="#ticks" transform="rotate(120 100 75)"></use>
+    <use href="#ticks" transform="rotate(135 100 75)"></use>
+    <use href="#ticks" transform="rotate(150 100 75)"></use>
+    <use href="#ticks" transform="rotate(165 100 75)"></use>
+    <use href="#ticks" transform="rotate(180 100 75)"></use>
+    <use href="#ticks" transform="rotate(195 100 75)"></use>
+    <use href="#ticks" transform="rotate(210 100 75)"></use>
+    <use href="#ticks" transform="rotate(225 100 75)"></use>
+    <use href="#ticks" transform="rotate(240 100 75)"></use>
+    <use href="#ticks" transform="rotate(255 100 75)"></use>
+    <use href="#ticks" transform="rotate(270 100 75)"></use>
+    <use href="#ticks" transform="rotate(285 100 75)"></use>
+    <use href="#ticks" transform="rotate(300 100 75)"></use>
+    <use href="#ticks" transform="rotate(315 100 75)"></use>
+    <use href="#ticks" transform="rotate(330 100 75)"></use>
+    <use href="#ticks" transform="rotate(345 100 75)"></use>
   </g>
 
-  <!-- Уступы карьера вместо горы: реальная форма открытой разработки -->
+  
   <g class="ink" opacity="0.9">
-    <path d="M62 100 L74 100 L74 94 L86 94 L86 88 L98 88 L98 82 L110 82 L110 88 L122 88 L122 94 L134 94 L134 100 L138 100 L138 104 L62 104 Z"/>
+    <path d="M62 100 L74 100 L74 94 L86 94 L86 88 L98 88 L98 82 L110 82 L110 88 L122 88 L122 94 L134 94 L134 100 L138 100 L138 104 L62 104 Z"></path>
   </g>
-  <!-- горизонт уступов, тонкие линии -->
+  
   <g class="hair" opacity="0.5">
-    <path d="M74 94 H134"/>
-    <path d="M86 88 H122"/>
-    <path d="M98 82 H110"/>
+    <path d="M74 94 H134"></path>
+    <path d="M86 88 H122"></path>
+    <path d="M98 82 H110"></path>
   </g>
 
-  <!-- Мачта связи над карьером — переход к его нынешней профессии -->
+  
   <g class="paper">
-    <path d="M100 82 L100 50"/>
-    <path d="M94 78 L106 78"/>
-    <path d="M95.5 70 L104.5 70"/>
-    <path d="M97 62 L103 62"/>
+    <path d="M100 82 L100 50"></path>
+    <path d="M94 78 L106 78"></path>
+    <path d="M95.5 70 L104.5 70"></path>
+    <path d="M97 62 L103 62"></path>
   </g>
-  <!-- радиоволны -->
+  
   <g class="hair" opacity="0.75">
-    <path d="M92 48 a11 11 0 0 1 16 0"/>
-    <path d="M86 42 a19 19 0 0 1 28 0"/>
+    <path d="M92 48 a11 11 0 0 1 16 0"></path>
+    <path d="M86 42 a19 19 0 0 1 28 0"></path>
   </g>
-  <circle class="ink" cx="100" cy="48" r="2.6"/>
+  <circle class="ink" cx="100" cy="48" r="2.6"></circle>
 
-  <!-- Лента с годом выпуска -->
-  <path class="ink" d="M40 128 L160 128 L160 148 L100 154 L40 148 Z" opacity="0.16"/>
-  <path class="paper" d="M40 128 L160 128 L160 148 L100 154 L40 148 Z"/>
-  <text x="100" y="143"
-        text-anchor="middle"
-        font-family="'JetBrains Mono', monospace"
-        font-size="13" font-weight="600"
-        letter-spacing="3"
-        fill="var(--copper, #c9924f)">2009</text>
+  
+  <path class="ink" d="M40 128 L160 128 L160 148 L100 154 L40 148 Z" opacity="0.16"></path>
+  <path class="paper" d="M40 128 L160 128 L160 148 L100 154 L40 148 Z"></path>
+  <text x="100" y="143" text-anchor="middle" font-family="&#39;JetBrains Mono&#39;, monospace" font-size="13" font-weight="600" letter-spacing="3" fill="var(--copper, #c9924f)">2009</text>
 
-  <!-- Скрещенные инструменты за колесом: кайло и молот -->
+  
   <g class="paper" opacity="0.8">
-    <path d="M22 44 L46 62"/>
-    <path d="M178 44 L154 62"/>
+    <path d="M22 44 L46 62"></path>
+    <path d="M178 44 L154 62"></path>
   </g>
   <g class="ink" opacity="0.8">
-    <rect x="10" y="34" width="18" height="12" rx="2" transform="rotate(37 19 40)"/>
-    <rect x="172" y="34" width="18" height="12" rx="2" transform="rotate(-37 181 40)"/>
+    <rect x="10" y="34" width="18" height="12" rx="2" transform="rotate(37 19 40)"></rect>
+    <rect x="172" y="34" width="18" height="12" rx="2" transform="rotate(-37 181 40)"></rect>
   </g>
 </svg>

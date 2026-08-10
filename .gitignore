@@ -1,0 +1,10 @@
+# Инструменты редактирования — не часть сайта
+.claude/
+.agents/
+.codebase-memory/
+.impeccable/
+skills-lock.json
+
+# ОС/редакторы
+.DS_Store
+Thumbs.db

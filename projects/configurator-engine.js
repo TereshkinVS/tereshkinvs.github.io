@@ -1,6 +1,10 @@
 // ============================================================
 // Движок генератора L3-конфигураций Huawei VRP
 // ============================================================
+function cfgEscapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
 const HUAWEI_TEMPLATE = `system-view
 
 sysname {{ hostname }}
@@ -410,7 +414,7 @@ function renderStep2(parsed, values) {
   }
   if (Object.keys(parsed.vlans).length) {
     html += `<div class="field"><label>Обнаруженные VLAN (${Object.keys(parsed.vlans).length})</label><div class="vlan-summary">${
-      Object.entries(parsed.vlans).map(([id, name]) => `<span class="vlan-chip">${id}${name ? ' · ' + name : ''}</span>`).join('')
+      Object.entries(parsed.vlans).map(([id, name]) => `<span class="vlan-chip">${cfgEscapeHtml(id)}${name ? ' · ' + cfgEscapeHtml(name) : ''}</span>`).join('')
     }</div></div>`;
   }
 
@@ -421,7 +425,7 @@ function renderStep2(parsed, values) {
       const type = v.secret ? 'password' : 'text';
       html += `<div class="field">
         <label for="cfg_${v.name}">${v.label}${v.required ? ' *' : ''}</label>
-        <input id="cfg_${v.name}" type="${type}" data-var="${v.name}" value="${String(val).replace(/"/g, '&quot;')}" placeholder="${v.hint || ''}">
+        <input id="cfg_${v.name}" type="${type}" data-var="${v.name}" value="${cfgEscapeHtml(val)}" placeholder="${v.hint || ''}">
         ${v.hint ? `<div class="field-hint">${v.hint}</div>` : ''}
       </div>`;
     });
