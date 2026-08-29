@@ -31,9 +31,10 @@ def ttf(src, size):
     f = TTFont(os.path.join(FONTS, src)); f.flavor = None; f.save(dst)
     return ImageFont.truetype(dst, size), set(TTFont(dst).getBestCmap())
 
+# Имя — заголовочным шрифтом сайта, роль — основным текстовым
 faces = {
-    ('name', 'cyr'): ttf('manrope-700-cyrillic.woff2', 58),
-    ('name', 'lat'): ttf('manrope-700-latin.woff2', 58),
+    ('name', 'cyr'): ttf('golos-text-700-cyrillic.woff2', 58),
+    ('name', 'lat'): ttf('golos-text-700-latin.woff2', 58),
     ('role', 'cyr'): ttf('manrope-500-cyrillic.woff2', 30),
     ('role', 'lat'): ttf('manrope-500-latin.woff2', 30),
     ('mono', 'cyr'): ttf('jetbrains-mono-400-cyrillic.woff2', 17),
