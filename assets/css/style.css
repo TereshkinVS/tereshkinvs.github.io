@@ -1102,8 +1102,10 @@ nav.links a:hover::after { transform: scaleX(1); }
 /* Логотип вписывается целиком, а не обрезается.
    height:auto обязателен — иначе height:100% из `.edu-card .thumb img`
    растягивает логотип на всю высоту плашки и он превращается в овал. */
+/* Размер задаём от высоты плашки, а не фиксированным max-width:
+   иначе на крупной плитке логотип остаётся маленьким пятном. */
 .edu-card .thumb.edu-logo img {
-  width: 44%; max-width: 128px; height: auto; aspect-ratio: 1;
+  width: auto; height: 58%; max-width: 72%; aspect-ratio: 1;
   object-fit: contain; border-radius: 50%; cursor: default;
 }
 .edu-card .thumb.edu-logo:hover img { transform: none; }
@@ -1415,6 +1417,8 @@ nav.links a:hover::after { transform: scaleX(1); }
   /* Бейдж не помещается на узкой миниатюре и дублирует строку статуса справа. */
   .edu-logo .in-progress { display: none; }
   .edu-card .thumb img { object-position: center top; }
+  /* Горизонтальная карточка: плашка узкая, размер логотипа ведём от ширины */
+  .edu-card .thumb.edu-logo img { height: auto; width: 66%; max-width: none; }
 }
 
 /* Сетки: не разваливать в одну колонку раньше времени —
