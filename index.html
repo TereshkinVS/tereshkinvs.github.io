@@ -90,14 +90,17 @@
 
 <!-- ================= HERO ================= -->
 <section class="hero">
+  <!-- Слой клавиш подсвечивается за курсором. Собирается скриптом и только
+       на десктопе: на тач-устройстве курсора нет, а DOM вырос бы на ~600 узлов. -->
+  <div class="key-layer" id="keyLayer" aria-hidden="true"></div>
   <div class="wrap hero-grid">
     <div>
       <div class="eyebrow"><span class="idx">whoami</span></div>
       <h1>Вячеслав Терёшкин<span class="line2">сетевая и промышленная инфраструктура связи</span></h1>
-      <p class="role">Строю и сопровождаю связь, от которой зависит работа производственных объектов: карьерная техника, корпоративные IP-сети, ВОЛС, Wi-Fi, TETRA, Private LTE и мониторинг. 14+ лет — от электрооборудования фабрики до защиты КИИ.</p>
+      <p class="role">Строю и сопровождаю связь, от которой зависит работа производственных объектов: карьерная техника, корпоративные IP-сети, ВОЛС, Wi-Fi, TETRA, Private LTE и мониторинг. 12+ лет — от электрооборудования фабрики до защиты КИИ.</p>
 
       <div class="stats">
-        <div class="stat"><b data-count="14" data-suffix="+">0</b><span>лет в связи</span></div>
+        <div class="stat"><b data-count="12" data-suffix="+">0</b><span>лет в связи</span></div>
         <div class="stat"><b data-count="4" data-suffix="+">0</b><span>года старшим и ведущим</span></div>
         <div class="stat"><b>187-ФЗ</b><span>КИИ · ФСТЭК 235/239</span></div>
       </div>

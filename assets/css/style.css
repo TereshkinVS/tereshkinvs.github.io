@@ -532,7 +532,29 @@ nav.links a:hover { color: var(--accent); }
 .btn svg { width: 15px; height: 15px; flex-shrink: 0; }
 
 /* ---------- Hero / Terminal ---------- */
-.hero { padding-top: clamp(48px, 8vw, 88px); padding-bottom: clamp(40px, 6vw, 60px); }
+.hero { padding-top: clamp(48px, 8vw, 88px); padding-bottom: clamp(40px, 6vw, 60px); position: relative; }
+
+/* Слой клавиш за героем: подсветка идёт за курсором.
+   Скрыт на тач-устройствах и при reduced-motion — там он бессмыслен. */
+.key-layer {
+  position: absolute; top: 0; left: 0; right: 0; height: 860px;
+  overflow: hidden; pointer-events: none; z-index: 0;
+  mask-image: linear-gradient(180deg, #000 0%, #000 55%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 55%, transparent 100%);
+}
+.key-layer .key {
+  position: absolute; width: 46px; height: 46px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid #17171d; border-radius: 5px;
+  background: #0d0d11; color: #1e1e24;
+  font-family: var(--font-mono); font-size: 12px;
+  opacity: 0; transform: scale(0.86);
+  transition: opacity 0.5s ease, transform 0.5s ease,
+              background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+.key-layer .key.in { opacity: 1; transform: scale(1); }
+@media (max-width: 860px), (pointer: coarse) { .key-layer { display: none; } }
+@media (prefers-reduced-motion: reduce) { .key-layer { display: none; } }
 .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: start; }
 @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
 

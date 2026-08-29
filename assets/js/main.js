@@ -174,6 +174,83 @@
     });
   });
 
+  // ----- Слой клавиш в hero: подсветка следует за курсором -----
+  (function keyLayer() {
+    const layer = document.getElementById('keyLayer');
+    if (!layer) return;
+    // Строим только там, где слой виден: не тратим ~600 узлов DOM на телефон
+    const active = () => getComputedStyle(layer).display !== 'none';
+    if (!active()) return;
+
+    const GLYPHS = 'VSTERESHKIN8021XKIIVOLSLTEAAARADIUSVLANSTPACL#$>_/';
+    const CELL = 46, GAP = 6, H = 860, RADIUS = 190;
+    let keys = [], cols = 0, pending = false;
+
+    function build(animate) {
+      const w = Math.max(layer.clientWidth, window.innerWidth);
+      cols = Math.ceil(w / (CELL + GAP)) + 1;
+      const rows = Math.ceil(H / (CELL + GAP));
+      const frag = document.createDocumentFragment();
+      layer.textContent = '';
+      keys = [];
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const el = document.createElement('div');
+          const x = c * (CELL + GAP), y = r * (CELL + GAP);
+          el.className = 'key';
+          el.textContent = GLYPHS[(r * cols + c * 7) % GLYPHS.length];
+          el.style.left = x + 'px';
+          el.style.top = y + 'px';
+          frag.appendChild(el);
+          keys.push({ el: el, cx: x + CELL / 2, cy: y + CELL / 2, lit: 0 });
+        }
+      }
+      layer.appendChild(frag);
+      keys.forEach(function (k) {
+        if (animate === false) { k.el.classList.add('in'); return; }
+        setTimeout(function () { k.el.classList.add('in'); }, 120 + (k.cx * 0.55 + k.cy * 0.35));
+      });
+    }
+
+    function onPointer(e) {
+      if (pending) return;
+      pending = true;
+      requestAnimationFrame(function () {
+        pending = false;
+        const box = layer.getBoundingClientRect();
+        const mx = e.clientX - box.left, my = e.clientY - box.top;
+        for (const k of keys) {
+          const d = Math.hypot(k.cx - mx, k.cy - my);
+          const t = d > RADIUS ? 0 : 1 - d / RADIUS;
+          const step = Math.round(t * 10) / 10;   // шагами, чтобы не трогать DOM зря
+          if (step === k.lit) continue;
+          k.lit = step;
+          const s = k.el.style;
+          if (step === 0) {
+            s.background = ''; s.color = ''; s.borderColor = '';
+          } else {
+            s.background = 'rgba(242,201,76,' + (step * 0.16).toFixed(2) + ')';
+            s.color = 'rgba(255,224,138,' + (0.25 + step * 0.75).toFixed(2) + ')';
+            s.borderColor = 'rgba(242,201,76,' + (0.15 + step * 0.55).toFixed(2) + ')';
+          }
+        }
+      });
+    }
+
+    build(true);
+    window.addEventListener('pointermove', onPointer, { passive: true });
+
+    let resizeT;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeT);
+      resizeT = setTimeout(function () {
+        if (!active()) { layer.textContent = ''; keys = []; return; }
+        const needed = Math.ceil(Math.max(layer.clientWidth, window.innerWidth) / (CELL + GAP)) + 1;
+        if (needed !== cols || !keys.length) build(false);
+      }, 160);
+    });
+  })();
+
   // ----- Индикатор прокрутки страницы -----
   const progress = document.querySelector('.scroll-progress');
   if (progress) {
