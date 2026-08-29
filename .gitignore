@@ -8,3 +8,8 @@ skills-lock.json
 # ОС/редакторы
 .DS_Store
 Thumbs.db
+
+# Не для публикации
+index.bundled-backup.html
+PRODUCT.md
+assets/img/_originals/

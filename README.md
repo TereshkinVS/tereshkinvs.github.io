@@ -34,6 +34,20 @@ python3 -m http.server 8000
 
 ## Кастомизация
 
-Цветовая схема страниц проектов задана переменными в начале `assets/css/style.css`
-(`--accent: #f2c94c` — жёлтый акцент, `--bg`, `--surface`, `--border`, радиусы).
-Главная страница собрана в один файл `index.html` со встроенными стилями.
+Весь сайт — статический HTML без сборки. Главная и страницы проектов используют
+общие `assets/css/style.css` и `assets/js/main.js`.
+
+Дизайн-токены заданы переменными в начале `assets/css/style.css`:
+`--accent: #f2c94c` (жёлтый акцент), `--bg`, `--surface`, `--border`, радиусы,
+шрифты и три цвета карьерного нарратива (`--copper`, `--slate`, `--accent`).
+
+### Структура главной
+
+`hero` → `#scale` → `#about` → `#cases` → `#lifecycle` → `#skills` →
+`#experience` → `#legal` → `#education` → `#principles` → `#contact`
+
+### Анимации
+
+Появление секций (`.reveal`, `.stagger`) включается классом `js` на `<html>` —
+его ставит инлайн-скрипт в `<head>`. Без JS и при `prefers-reduced-motion`
+контент показывается сразу, ничего не скрывается.

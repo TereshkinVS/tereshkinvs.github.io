@@ -2,16 +2,63 @@
 // Общие интерактивные элементы сайта
 // ============================================================
 (function () {
+  // ----- Ловушка фокуса для оверлеев (меню, лайтбокс) -----
+  // Пока оверлей открыт, Tab не должен уводить в страницу под ним.
+  const FOCUSABLE = 'a[href], button:not([disabled]), input, [tabindex]:not([tabindex="-1"])';
+
+  function trapFocus(container) {
+    const onKey = (e) => {
+      if (e.key !== 'Tab') return;
+      const items = [...container.querySelectorAll(FOCUSABLE)].filter(el => el.offsetParent !== null);
+      if (!items.length) return;
+      const first = items[0], last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    };
+    container.addEventListener('keydown', onKey);
+    return () => container.removeEventListener('keydown', onKey);
+  }
+
+  const lockScroll = (on) => document.body.classList.toggle('no-scroll', on);
+
   // ----- Мобильное меню -----
   const menuBtn = document.getElementById('menuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
   if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-    });
+    let releaseMenuTrap = null;
+
+    // Иконки рисуются, а не набираются глифами — один штрих с остальной графикой.
+    const svg = (paths) =>
+      `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">${paths}</svg>`;
+    const ICON_BURGER = svg('<path d="M4 7h16M4 12h16M4 17h16"/>');
+    const ICON_CLOSE = svg('<path d="M6 6l12 12M18 6L6 18"/>');
+
+    const setMenu = (open) => {
+      mobileMenu.classList.toggle('open', open);
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.setAttribute('aria-label', open ? 'Закрыть меню' : 'Меню');
+      menuBtn.innerHTML = open ? ICON_CLOSE : ICON_BURGER;
+      lockScroll(open);
+
+      if (open) {
+        releaseMenuTrap = trapFocus(mobileMenu);
+        mobileMenu.querySelector('a')?.focus();
+      } else {
+        releaseMenuTrap?.();
+        releaseMenuTrap = null;
+        // Фокус не должен остаться на ссылке, которую только что скрыли —
+        // возвращаем его на кнопку при любом способе закрытия.
+        if (mobileMenu.contains(document.activeElement)) menuBtn.focus();
+      }
+    };
+
+    menuBtn.addEventListener('click', () => setMenu(!mobileMenu.classList.contains('open')));
     mobileMenu.querySelectorAll('a').forEach(a =>
-      a.addEventListener('click', () => mobileMenu.classList.remove('open'))
+      a.addEventListener('click', () => setMenu(false))
     );
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) setMenu(false);
+    });
   }
 
   // ----- Scroll reveal -----
@@ -26,22 +73,105 @@
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
   // ----- Lightbox для фото (сертификаты, дипломы, фото с объектов) -----
+  // Диалог собирается скриптом: без JS миниатюры остаются обычными
+  // картинками и не притворяются кнопками, которые никуда не ведут.
   const lightbox = document.createElement('div');
   lightbox.className = 'lightbox';
+  lightbox.setAttribute('role', 'dialog');
+  lightbox.setAttribute('aria-modal', 'true');
+  lightbox.setAttribute('aria-label', 'Просмотр изображения');
   // impeccable-disable broken-image: placeholder dynamically populated on click
-  lightbox.innerHTML = '<img alt="">';
+  lightbox.innerHTML =
+    '<button class="lightbox-close" type="button" aria-label="Закрыть">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">' +
+        '<path d="M6 6l12 12M18 6L6 18"/>' +
+      '</svg>' +
+    '</button>' +
+    '<img alt="">';
   document.body.appendChild(lightbox);
+
   const lbImg = lightbox.querySelector('img');
+  const lbClose = lightbox.querySelector('.lightbox-close');
+  let lastTrigger = null;
+  let releaseLbTrap = null;
+
+  function openLightbox(el) {
+    lbImg.src = el.getAttribute('data-lightbox') || el.src;
+    lbImg.alt = el.alt || '';
+    lightbox.setAttribute('aria-label', el.alt ? 'Просмотр: ' + el.alt : 'Просмотр изображения');
+    lastTrigger = el;
+    lightbox.classList.add('open');
+    lockScroll(true);
+    releaseLbTrap = trapFocus(lightbox);
+    lbClose.focus();
+  }
+
+  function closeLightbox() {
+    if (!lightbox.classList.contains('open')) return;
+    lightbox.classList.remove('open');
+    lockScroll(false);
+    releaseLbTrap?.();
+    releaseLbTrap = null;
+    lastTrigger?.focus();   // фокус возвращается туда, откуда открыли
+    lastTrigger = null;
+  }
+
   document.querySelectorAll('[data-lightbox]').forEach(el => {
-    el.addEventListener('click', () => {
-      lbImg.src = el.getAttribute('data-lightbox') || el.src;
-      lbImg.alt = el.alt || '';
-      lightbox.classList.add('open');
+    // Доступ с клавиатуры добавляется здесь же, где живёт поведение.
+    el.setAttribute('role', 'button');
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('aria-haspopup', 'dialog');
+    if (el.alt) el.setAttribute('aria-label', 'Открыть изображение: ' + el.alt);
+
+    el.addEventListener('click', () => openLightbox(el));
+    el.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(el); }
     });
   });
-  lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
+
+  lbClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => { if (e.target !== lbClose) closeLightbox(); });
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') lightbox.classList.remove('open');
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // ----- Глоссарные термины: связать всплывающую карточку с термином -----
+  // Без этого скринридер зачитывает определение как обычный текст посреди
+  // предложения, ещё и повторяя сам термин дважды.
+  document.querySelectorAll('.term').forEach((term, n) => {
+    const card = term.querySelector('.term-card');
+    if (!card) return;
+    const id = 'term-def-' + n;
+    card.id = id;
+    card.setAttribute('role', 'tooltip');
+    card.querySelector('b')?.setAttribute('aria-hidden', 'true'); // дубль названия
+    term.setAttribute('aria-describedby', id);
+    term.setAttribute('role', 'button');
+    term.setAttribute('aria-expanded', 'false');
+
+    // На тач-устройствах :hover не срабатывает — объяснения были недоступны
+    // вообще. Открываем по тапу, закрываем по повторному тапу или Escape.
+    const toggle = (on) => {
+      document.querySelectorAll('.term.is-open').forEach(t => {
+        if (t !== term) { t.classList.remove('is-open'); t.setAttribute('aria-expanded', 'false'); }
+      });
+      term.classList.toggle('is-open', on);
+      term.setAttribute('aria-expanded', String(on));
+    };
+
+    term.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggle(!term.classList.contains('is-open'));
+    });
+    term.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(!term.classList.contains('is-open')); }
+      if (e.key === 'Escape') toggle(false);
+    });
+  });
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.term.is-open').forEach(t => {
+      t.classList.remove('is-open'); t.setAttribute('aria-expanded', 'false');
+    });
   });
 
   // ----- Индикатор прокрутки страницы -----
@@ -77,26 +207,33 @@
   // ----- Терминал: загрузочная последовательность + маршрутизация командами -----
   const termBody = document.getElementById('termBody');
   const termInput = document.getElementById('termInput');
-  if (termBody) {
+  const termBox = document.querySelector('.terminal');
+  // На мобильных терминал скрыт через CSS — не гоняем анимацию впустую.
+  const termVisible = termBox && getComputedStyle(termBox).display !== 'none';
+  if (termBody && termVisible) {
     const bootLines = [
       { text: 'connecting to vs-tereshkin.local ...', delay: 300 },
       { text: 'authentication: ok', delay: 260 },
-      { text: 'sysname VS-ENGINEER', delay: 260 },
       { text: '', delay: 120 },
-      { text: 'Вячеслав Терёшкин — сетевой инженер / специалист ИБ.', delay: 480, strong: true },
-      { text: '14+ лет в связи: от ВОЛС и АТС до 802.1X и КИИ.', delay: 420 },
+      { text: '$ whoami', delay: 300, hint: true },
+      { text: 'Вячеслав Терёшкин', delay: 380, strong: true },
       { text: '', delay: 100 },
-      { text: 'введите help — список команд, Tab — автодополнение', delay: 220, hint: true },
-      { text: '#', delay: 0 }
+      { text: '$ role', delay: 260, hint: true },
+      { text: 'Ведущий специалист по сетевой', delay: 340 },
+      { text: 'и промышленной инфраструктуре связи', delay: 420 },
+      { text: '', delay: 100 },
+      { text: 'кликните ниже и введите help — список команд, Tab — автодополнение', delay: 220, hint: true }
     ];
 
     const COMMANDS = {
-      about:      { hash: '#about',      desc: 'обо мне' },
-      experience: { hash: '#experience', desc: 'опыт работы' },
-      education:  { hash: '#education',  desc: 'образование и сертификаты' },
+      scale:      { hash: '#scale',      desc: 'масштаб инфраструктуры' },
+      about:      { hash: '#about',      desc: 'о себе' },
+      cases:      { hash: '#cases',      desc: 'ключевые кейсы' },
+      lifecycle:  { hash: '#lifecycle',  desc: 'как я работаю' },
       skills:     { hash: '#skills',     desc: 'навыки' },
-      projects:   { hash: '#projects',   desc: 'проекты' },
-      lab:        { hash: '#homelab',    desc: 'домашняя лаборатория' },
+      experience: { hash: '#experience', desc: 'опыт работы' },
+      legal:      { hash: '#legal',      desc: 'нормативная база и КИИ' },
+      education:  { hash: '#education',  desc: 'образование и сертификаты' },
       contact:    { hash: '#contact',    desc: 'связаться' },
       cv:         { url: 'https://barnaul.hh.ru/resume/d044b285ff0f369fa10039ed1f754d32427461?hhtmFrom=my_resumes', desc: 'резюме на hh.ru' },
       github:     { url: 'https://github.com/TereshkinVS', desc: 'профиль на github' },
@@ -126,7 +263,8 @@
     }
     function typeNext() {
       if (i >= bootLines.length) {
-        setTimeout(() => termInput && termInput.focus({ preventScroll: true }), 100);
+        // Автофокуса нет намеренно: он угонял фокус посреди чтения страницы
+        // и отнимал прокрутку с клавиатуры. Фокус — только по клику ниже.
         return;
       }
       printLine(bootLines[i]);
@@ -296,36 +434,4 @@
   }
 })();
 
-// ----- Финальная адаптивность: гарантировать минимальные touch-targets -----
-function ensureMinTouchTargets() {
-  // Кнопки
-  document.querySelectorAll('button').forEach(btn => {
-    if (btn.offsetWidth < 44) btn.style.width = '44px';
-    if (btn.offsetHeight < 44) btn.style.height = '44px';
-  });
-
-  // Интерактивные ссылки и кнопки
-  document.querySelectorAll('a, [role="button"]').forEach(el => {
-    const h = el.offsetHeight;
-    const w = el.offsetWidth;
-
-    // Если высота < 44, гарантировать минимум
-    if (h > 0 && h < 44 && (el.textContent.includes('Связаться') || el.textContent.includes('Резюме') || el.textContent.includes('Проекты'))) {
-      el.style.display = 'inline-flex';
-      el.style.alignItems = 'center';
-      el.style.minHeight = '44px';
-    }
-
-    // Логотип
-    if (el.textContent.includes('VS') && el.textContent.includes('tereshkin')) {
-      el.style.display = 'flex';
-      el.style.alignItems = 'center';
-      el.style.minHeight = '44px';
-    }
-  });
-}
-
-// Выполнить через 100ms, 500ms и 1000ms
-setTimeout(ensureMinTouchTargets, 100);
-setTimeout(ensureMinTouchTargets, 500);
-setTimeout(ensureMinTouchTargets, 1000);
+// Минимальные touch-targets заданы в style.css через @media (pointer: coarse).
