@@ -1417,6 +1417,10 @@ nav.links a:hover::after { transform: scaleX(1); }
   /* Бейдж не помещается на узкой миниатюре и дублирует строку статуса справа. */
   .edu-logo .in-progress { display: none; }
   .edu-card .thumb img { object-position: center top; }
+  /* Диплом — альбомный документ в узкой вертикальной плашке. По центру
+     оказывается пустой промежуток между колонками, поэтому кадрируем
+     к левой части, где надпись «ДИПЛОМ БАКАЛАВРА». */
+  .edu-card .thumb.thumb-left img { object-position: 18% center; }
   /* Горизонтальная карточка: плашка узкая, размер логотипа ведём от ширины */
   .edu-card .thumb.edu-logo img { height: auto; width: 66%; max-width: none; }
 }
